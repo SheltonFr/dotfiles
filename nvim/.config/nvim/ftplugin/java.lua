@@ -57,6 +57,10 @@ local config = {
             name = "JavaSE-17",
             path = vim.env.HOME .. "/.sdkman/candidates/java/17.0.11-tem/",
           },
+          {
+            name = "JavaSE-21",
+            path = vim.env.HOME .. "/.sdkman/candidates/java/21.0.3-jbr/"
+          },
         }
       },
       maven = {

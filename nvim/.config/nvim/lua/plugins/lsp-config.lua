@@ -29,6 +29,7 @@ return {
       -- Install these LSPs automatically
       ensure_installed = {
         'bashls',
+        'tsserver',
         'cssls',
         'html',
         'gradle_ls',

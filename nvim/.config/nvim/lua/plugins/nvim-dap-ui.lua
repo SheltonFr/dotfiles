@@ -5,7 +5,18 @@ return {
   event = 'VeryLazy',
   dependencies = {
     -- https://github.com/mfussenegger/nvim-dap
-    'mfussenegger/nvim-dap',
+    {
+      'mfussenegger/nvim-dap',
+      dependencies = {
+        "nvim-neotest/neotest",
+        dependencies = {
+          "nvim-neotest/nvim-nio",
+          "nvim-lua/plenary.nvim",
+          "antoinemadec/FixCursorHold.nvim",
+          "nvim-treesitter/nvim-treesitter"
+        }
+      }
+    },
     -- https://github.com/theHamsta/nvim-dap-virtual-text
     'theHamsta/nvim-dap-virtual-text', -- inline variable text while debugging
     -- https://github.com/nvim-telescope/telescope-dap.nvim

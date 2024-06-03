@@ -3,6 +3,12 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
+-- Pane Navigation
+keymap.set('n', '<c-l>', '<c-w>l')
+keymap.set('n', '<c-h>', '<c-w>h')
+keymap.set('n', '<c-w>', '<c-w>w')
+keymap.set('n', '<c-k>', '<c-k>w')
+
 -- General keymaps
 keymap.set("i", "jk", "<ESC>") -- exit insert mode with jk 
 keymap.set("i", "ii", "<ESC>") -- exit insert mode with ii
