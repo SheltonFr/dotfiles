@@ -11,12 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "shelton.plugins" }, { import = "shelton.plugins.lsp" } }, {
-  chacker = {
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    notify = false,
-  }
+require("lazy").setup({
+    spec = "shelton.lazy",
+    change_detection = { notify = false }
 })

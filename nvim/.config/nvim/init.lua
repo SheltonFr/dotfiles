@@ -1,2 +1,1 @@
-require("shelton.core")
-require("shelton.lazy")
+require('shelton')
