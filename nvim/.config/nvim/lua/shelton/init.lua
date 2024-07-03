@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- This has to be set before initializing lazy
 vim.g.mapleader = " "
+require("shelton.core.options")
 
 -- Initialize lazy with dynamic loading of anything in the plugins directory
 require("lazy").setup("shelton.plugins", {
@@ -23,5 +24,4 @@ require("lazy").setup("shelton.plugins", {
 })
 
 -- These modules are not loaded by lazy
-require("shelton.core.options")
 require("shelton.core.keymaps")

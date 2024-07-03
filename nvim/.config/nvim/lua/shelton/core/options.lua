@@ -30,11 +30,13 @@ opt.backup = false
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.undofile = true
 
+
 -- Apppearance
 opt.termguicolors = true
 opt.cursorline = true
 opt.background = "dark"
 opt.signcolumn = "yes"
+opt.showmode = false
 vim.diagnostic.config {
   float = { border = "rounded" }, -- add border to diagnostic popups
 }
