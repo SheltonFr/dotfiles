@@ -2,6 +2,12 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
+-- Disable arrow keys in normal mode
+vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+
 -- That fancy VSCode feature for moving lines around (credits to @ThePrimeagen)
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -10,23 +16,28 @@ keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
 
+-- Better window navigation
+vim.keymap.set("n", "<C-h>", ":wincmd h<cr>", { desc = "Move focus to the left window" })
+vim.keymap.set("n", "<C-l>", ":wincmd l<cr>", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "<C-j>", ":wincmd j<cr>", { desc = "Move focus to the lower window" })
+vim.keymap.set("n", "<C-k>", ":wincmd k<cr>", { desc = "Move focus to the upper window" })
+
 -- Tab management
-keymap.set("n", "<leader>to", ":tabnew<CR>")
-keymap.set("n", "<leader>tx", ":tabclose<CR>")
-keymap.set("n", "<leader>tn", ":tabn<CR>")
-keymap.set("n", "<leader>tp", ":tabp<CR>")
+keymap.set("n", "<leader>to", ":tabnew<CR>", { desc = "Open New Tab" })
+keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "Close Current Tab" })
+keymap.set("n", "<leader>tn", ":tabn<CR>", { desc = "Next Tab" })
+keymap.set("n", "<leader>tp", ":tabp<CR>", { desc = "Previous Tab" })
+
 -- Quickfix keymaps
-keymap.set("n", "<leader>qo", ":copen<CR>")
-keymap.set("n", "<leader>qf", ":cfirst<CR>")
-keymap.set("n", "<leader>qn", ":cnext<CR>")
-keymap.set("n", "<leader>qp", ":cprev<CR>")
-keymap.set("n", "<leader>ql", ":clast<CR>")
-keymap.set("n", "<leader>qc", ":cclose<CR>")
+keymap.set("n", "<leader>qo", ":copen<CR>", { desc = "Open Quiclfix List" })
+keymap.set("n", "<leader>qf", ":cfirst<CR>", { desc = "First Item" })
+keymap.set("n", "<leader>qn", ":cnext<CR>", { desc = "Next Item" })
+keymap.set("n", "<leader>qp", ":cprev<CR>", { desc = "Previous Item" })
+keymap.set("n", "<leader>ql", ":clast<CR>", { desc = "Last Item" })
+keymap.set("n", "<leader>qc", ":cclose<CR>", { desc = "Close Quiclfix List" })
 
 -- Nvim-tree
-keymap.set("n", "\\", ":NvimTreeToggle<CR>")
-keymap.set("n", "<leader>er", ":NvimTreeFocus<CR>")
-keymap.set("n", "<leader>ef", ":NvimTreeFindFile<CR>")
+keymap.set("n", "\\", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle Explorer" })
 
 -- Telescope
 keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, {})

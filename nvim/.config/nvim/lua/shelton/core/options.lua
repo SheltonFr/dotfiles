@@ -1,44 +1,51 @@
 local opt = vim.opt
 
+-- Left column and similar settings
+opt.number = true
+opt.relativenumber = true
+opt.numberwidth = 2
+opt.signcolumn = "yes"
+opt.wrap = false
+opt.scrolloff = 12
+opt.sidescrolloff = 8
+
+-- Tab spacing/behavior
+opt.expandtab = true
+opt.shiftwidth = 2
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.smartindent = true
+opt.breakindent = true
+
+-- General Behaviors
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+opt.backup = false
+opt.clipboard = "unnamedplus"
+opt.conceallevel = 0
+opt.fileencoding = "utf-8"
+opt.showmode = false
+opt.splitbelow = true
+opt.splitright = true
+opt.termguicolors = true
+opt.timeoutlen = 1000
+opt.undofile = true
+opt.writebackup = false
+opt.cursorline = true
+opt.swapfile = false
+
+-- Searching Behaviors
+opt.hlsearch = true
+opt.ignorecase = true
+opt.smartcase = true
+opt.incsearch = true
+
 -- Session Management
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
--- Line Numbers
-opt.number = true
-opt.relativenumber = true
-
--- Tabs & Indentation
-opt.tabstop = 2
-opt.softtabstop = 2
-opt.shiftwidth = 2
-opt.expandtab = true
-opt.autoindent = true
-opt.smartindent = true
-
--- Line Wrap
-opt.wrap = false
-
--- Search Settings
-opt.hlsearch = false
-opt.incsearch = true
-opt.ignorecase = true
-opt.smartcase = true
-
--- This one is crap
-opt.swapfile = false
-opt.backup = false
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-opt.undofile = true
-
-
 -- Apppearance
-opt.termguicolors = true
-opt.cursorline = true
-opt.background = "dark"
-opt.signcolumn = "yes"
-opt.showmode = false
 vim.diagnostic.config {
-  float = { border = "rounded" }, -- add border to diagnostic popups
+  float = { border = "rounded" },
 }
 
 -- Backspace
@@ -47,24 +54,10 @@ opt.backspace = "indent,eol,start"
 -- Clipboard
 opt.clipboard:append("unnamedplus")
 
--- Split Windows
-opt.splitright = true
-opt.splitbelow = true
-
 -- Consider - as part of keyword
 opt.iskeyword:append("-")
 
 -- Disable the mouse while in nvim
 opt.mouse = ""
-
--- Folding
-opt.foldlevel = 20
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()" -- Utilize Treesitter folds
-
-opt.scrolloff = 12
-opt.isfname:append("@-@")
-
 opt.updatetime = 50
-
 opt.colorcolumn = "80"
