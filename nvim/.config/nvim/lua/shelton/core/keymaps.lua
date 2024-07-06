@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-
 local keymap = vim.keymap
 
 -- Disable arrow keys in normal mode
@@ -46,20 +45,44 @@ keymap.set('n', '<leader>fg', require('telescope.builtin').git_files, {})
 keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, {})
 
 -- LSP
-keymap.set('n', '<leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-keymap.set('n', '<leader>gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-keymap.set('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-keymap.set('n', '<leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-keymap.set('n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-keymap.set('n', '<leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
-keymap.set('n', '<leader>rr', '<cmd>lua vim.lsp.buf.rename()<CR>')
-keymap.set('n', '<leader>gf', '<cmd>lua vim.lsp.buf.format({async = true})<CR>')
-keymap.set('n', '<leader>ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-keymap.set('n', '<leader>gl', '<cmd>lua vim.diagnostic.open_float()<CR>')
-keymap.set('n', '<leader>gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
-keymap.set('n', '<leader>gn', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-keymap.set('n', '<leader>tr', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
+-- keymap.set('n', '<leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+-- keymap.set('n', '<leader>gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+-- keymap.set('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+-- keymap.set('n', '<leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+-- keymap.set('n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+-- keymap.set('n', '<leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+-- keymap.set('n', '<leader>gr', '<cmd>lua vim.lsp.buf.rename()<CR>')
+-- keymap.set('n', '<leader>cf', '<cmd>lua vim.lsp.buf.format({async = true})<CR>')
+-- keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+-- keymap.set('n', '<leader>gl', '<cmd>lua vim.diagnostic.open_float()<CR>')
+-- keymap.set('n', '<leader>gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+-- keymap.set('n', '<leader>gn', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+-- keymap.set('n', '<leader>tr', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
+
 keymap.set('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>')
+keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
+keymap.set("n", "<leader>cd", vim.lsp.buf.definition, { desc = "[C]ode Goto [D]efinition" })
+keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ctions" })
+keymap.set('n', '<leader>cf', '<cmd>lua vim.lsp.buf.format({async = true})<CR>', { desc = "[C]ode [F]ormat" })
+keymap.set(
+  "n",
+  "<leader>cr",
+  require("telescope.builtin").lsp_references,
+  { desc = "[C]ode Goto [R]eferences" }
+)
+keymap.set(
+  "n",
+  "<leader>ci",
+  require("telescope.builtin").lsp_implementations,
+  { desc = "[C]ode Goto [I]mplementations" }
+)
+keymap.set("n", "<leader>cR", vim.lsp.buf.rename, { desc = "[C]ode [R]ename" })
+keymap.set("n", "<leader>cD", vim.lsp.buf.declaration, { desc = "[C]ode Goto [D]eclaration" })
+
+-- DAP
+vim.keymap.set("n", "<leader>dt", require('dap').toggle_breakpoint, { desc = "[D]ebug [T]oggle Breakpoint" })
+vim.keymap.set("n", "<leader>ds", require('dap').continue, { desc = "[D]ebug [S]tart" })
+vim.keymap.set("n", "<leader>dc", require('dapui').close, { desc = "[D]ebug [C]lose" })
 
 -- Git blame
 keymap.set('n', '<leader>gb', ':GitBlameToggle<CR>')

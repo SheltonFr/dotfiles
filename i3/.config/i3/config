@@ -97,6 +97,12 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
+# resize windows
+bindsym $mod+Ctrl+Right resize shrink width 1 px or 1 ppt
+bindsym $mod+Ctrl+Up resize grow height 1 px or 1 ppt
+bindsym $mod+Ctrl+Down resize shrink height 1 px or 1 ppt
+bindsym $mod+Ctrl+Left resize grow width 1 px or 1 ppt
+
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
