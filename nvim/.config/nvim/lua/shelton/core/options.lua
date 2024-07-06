@@ -35,7 +35,7 @@ opt.cursorline = true
 opt.swapfile = false
 
 -- Searching Behaviors
-opt.hlsearch = true
+opt.hlsearch = false
 opt.ignorecase = true
 opt.smartcase = true
 opt.incsearch = true

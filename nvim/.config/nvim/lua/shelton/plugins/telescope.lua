@@ -48,8 +48,8 @@ return {
         -- set keymappings to navigate through items in the telescope io
         mappings = {
           i = {
-            -- ["<C-p>"] = actions.cycle_history_prev,
-            -- ["<C-n>"] = actions.cycle_history_next,
+            ["<C-p>"] = actions.cycle_history_prev,
+            ["<C-n>"] = actions.cycle_history_next,
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
           },
