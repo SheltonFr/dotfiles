@@ -6,19 +6,24 @@ local M = {
 }
 
 function M.config()
-  local servers ={
-    "cssls",
-    "yamlls",
-    "bashls",
-    "jsonls",
-    "lua_ls",
-    "rust_analyzer",
-    "gopls",
-    "tsserver",
+  local servers = {
+    "tailwindscc",
     "jdtls",
+    "tsserver",
+    "yamlls",
+    "rust_analyzer",
+    "postgres_lsp",
+    "prismals",
+    "pyright",
     "cssls",
-    "html",
-    "pyright"
+    "eslint",
+    "vuels",
+    "vimls",
+    "lua_ls",
+    "gopls",
+    "jsonls",
+    "bashls",
+    "html"
   }
 
   require("mason").setup({
